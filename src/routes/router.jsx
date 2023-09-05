@@ -11,7 +11,8 @@ import Order from "../pages/Order";
 import Staff from "../pages/Staff";
 import Table from "../pages/Table";
 import Layout from "../components/layout/Layout";
-import RegisterStaff from "../pages/RegisterStaff";
+import Customer from "../pages/Customer";
+import Laporan from "../pages/Laporan";
 
 const router = createBrowserRouter([
   {
@@ -27,16 +28,6 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
-    loader: () => {
-      if (localStorage.getItem("authorization")) {
-        throw redirect("/");
-      }
-      return null;
-    },
-  },
-  {
-    path: "/register-staff",
-    element: <RegisterStaff />,
     loader: () => {
       if (localStorage.getItem("authorization")) {
         throw redirect("/");
@@ -63,6 +54,10 @@ const router = createBrowserRouter([
         element: <Menu />,
       },
       {
+        path: "/customer",
+        element: <Customer />,
+      },
+      {
         path: "/order",
         element: <Order />,
       },
@@ -71,8 +66,12 @@ const router = createBrowserRouter([
         element: <Staff />,
       },
       {
-        path: "/table",
+        path: "/meja",
         element: <Table />,
+      },
+      {
+        path: "/laporan",
+        element: <Laporan />,
       },
     ],
   },
