@@ -7,14 +7,12 @@ const dataMenu = [dataSidebar.pop()];
 
 const Sidebar = () => {
   const navigate = useNavigate();
-  const [activeMenu, setActiveMenu] = useState(
-    localStorage.getItem("activeMenu") || dataSidebar[0].name
-  );
+  const activeMenu = localStorage.getItem("activeMenu") || dataSidebar[0].name;
 
   return (
-    <div className="w-full h-screen bg-[#091877] px-5  flex flex-col">
+    <div className="w-full h-screen bg-primaryLight px-5  flex flex-col">
       {/* Logo */}
-      <div className="flex  items-center py-5 h-[15%]">
+      <div className="flex  items-center pt-10 pb-16 h-[10%]">
         <img src={"/logoAlex.png"} alt="logo" className="h-12 w-12" />
         <p className="font-bold font-poppins text-2xl text-white">AMPERA</p>
       </div>
@@ -25,13 +23,12 @@ const Sidebar = () => {
           <Link
             to={el.link}
             key={index}
-            className={`text-white text-md font-poppins px-3 py-2 cursor-pointer flex items-center gap-3 ${
+            className={`text-white text-md font-poppins px-3 py-2 cursor-pointer flex items-center gap-3 mb-1 ${
               activeMenu === el.name
-                ? "bg-[#041059] rounded-lg"
-                : "hover:bg-[#041059] hover:rounded-lg"
+                ? "bg-primaryDark rounded-lg font-semibold "
+                : "hover:bg-primary hover:rounded-lg"
             }`}
             onClick={() => {
-              setActiveMenu(el.name);
               localStorage.setItem("activeMenu", el.name);
             }}
           >

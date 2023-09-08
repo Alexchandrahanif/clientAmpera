@@ -14,22 +14,24 @@ import axios from "axios";
 const Register = () => {
   const navigate = useNavigate();
 
+  const [displayName, setDisplayName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
-
-  const [fileList, setFileList] = useState([]);
+  const [companyName, setCompanyName] = useState("");
+  const [companyAddress, setCompanyAddress] = useState("");
 
   const formData = new FormData();
-  formData.append("displayName", username);
+  formData.append("displayName", displayName);
   formData.append("username", username);
   formData.append("email", email);
   formData.append("password", password);
   formData.append("phoneNumber", phoneNumber);
   formData.append("address", address);
-  formData.append("photoUser", fileList?.[0]?.originFileObj);
+  formData.append("companyName", companyName);
+  formData.append("companyAddress", companyAddress);
 
   const handleSubmit = async () => {
     console.log(formData);
@@ -60,71 +62,108 @@ const Register = () => {
 
       {/* Kiri */}
       <div className="w-[100%] sm:w-[50%] flex flex-col items-center">
-        <div className="w-16 h-16 border-[1px] border-slate-800 flex justify-center items-center rounded-full mt-5">
-          <img src={logo} alt="logo" className="w-16 h-16" />
-        </div>
-        <p className="text-2xl font-bold mt-5">Selamat Datang!</p>
+        <p className="mt-10 font-bold text-2xl">REGISTER</p>
 
-        <form className="w-[350px]  p-5 rounded-xl mt-5">
-          {/* Photo Profile */}
-          <UploadFile
-            value={fileList}
-            setValue={setFileList}
-            title={"Profile"}
-            single={true}
-          />
+        <div className="w-full p-5 rounded-xl flex flex-col  items-center ">
+          <div className="flex flex-wrap justify-around">
+            {/* Username */}
+            <Input
+              style={{ width: "300px" }}
+              size="large"
+              placeholder="Masukkan Diplay Name"
+              className="mt-5 "
+              value={displayName}
+              onChange={(e) => {
+                setDisplayName(e.target.value);
+              }}
+            />
+            <Input
+              style={{ width: "300px" }}
+              size="large"
+              placeholder="Masukkan Username"
+              className="mt-5 "
+              value={username}
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
+            />
 
-          {/* Username */}
-          <Input
-            placeholder="Masukkan Username"
-            className="mt-5 "
-            value={username}
-            onChange={(e) => {
-              setUsername(e.target.value);
-            }}
-          />
+            {/* Email */}
+            <Input
+              style={{ width: "300px" }}
+              size="large"
+              placeholder="Masukkan Email"
+              className="mt-5 "
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
 
-          {/* Email */}
-          <Input
-            placeholder="Masukkan Email"
-            className="mt-5 "
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
+            {/* Password */}
+            <Input.Password
+              style={{ width: "300px" }}
+              size="large"
+              placeholder="Masukkan Password"
+              className="mt-5 "
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
 
-          {/* Password */}
-          <Input.Password
-            placeholder="Masukkan Password"
-            className="mt-5 "
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
+            {/* Phone Number */}
+            <Input
+              style={{ width: "300px" }}
+              size="large"
+              placeholder="Masukkan Nomor Telepon"
+              className="mt-5 "
+              value={phoneNumber}
+              onChange={(e) => {
+                setPhoneNumber(e.target.value);
+              }}
+            />
 
-          {/* Phone Number */}
-          <Input
-            placeholder="Masukkan Phone Number"
-            className="mt-5 "
-            value={phoneNumber}
-            onChange={(e) => {
-              setPhoneNumber(e.target.value);
-            }}
-          />
+            {/* Address */}
+            <Input
+              style={{ width: "300px" }}
+              size="large"
+              placeholder="Masukkan Alamat"
+              className="mt-5 "
+              value={address}
+              onChange={(e) => {
+                setAddress(e.target.value);
+              }}
+            />
 
-          {/* Address */}
-          <Input
-            placeholder="Masukkan Address"
-            className="mt-5 "
-            value={address}
-            onChange={(e) => {
-              setAddress(e.target.value);
-            }}
-          />
+            {/* Company Name */}
+            <Input
+              style={{ width: "300px" }}
+              size="large"
+              placeholder="Masukkan Nama Perusahaan"
+              className="mt-5 "
+              value={companyName}
+              onChange={(e) => {
+                setCompanyName(e.target.value);
+              }}
+            />
 
+            {/* CompanyAddress */}
+            <Input
+              style={{ width: "300px" }}
+              size="large"
+              placeholder="Masukkan Alamat Perusahaan"
+              className="mt-5 "
+              value={companyAddress}
+              onChange={(e) => {
+                setCompanyAddress(e.target.value);
+              }}
+            />
+          </div>
           <Button
+            // classNames="w-[85%]"
+            style={{ width: "300px" }}
+            size="large"
             type="primary"
             block
             className="mt-5 bg-sky-600"
@@ -132,7 +171,7 @@ const Register = () => {
           >
             Register
           </Button>
-        </form>
+        </div>
 
         <p className="font-light text-sm">
           Sudah Punya Akun?{" "}

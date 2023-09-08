@@ -6,8 +6,12 @@ export default {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
         inter: ["Inter", "sans-serif"],
+        scrollbar: ["rounded"],
       },
       colors: {
+        primary: "#041059",
+        primaryDark: "#041059",
+        primaryLight: "#091877",
         ungu: "#5D50C6",
         pink: "#F85E9F",
         oren: "#FF5722",

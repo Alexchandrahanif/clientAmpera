@@ -42,6 +42,7 @@ const UploadFile = ({ value = [], setValue = () => {}, single, title }) => {
       <div
         style={{
           marginTop: 8,
+          fontSize: 13,
         }}
       >
         {title ? title : "Upload"}
@@ -53,7 +54,7 @@ const UploadFile = ({ value = [], setValue = () => {}, single, title }) => {
       <Upload
         action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
         className="text-center"
-        listType="picture-card"
+        listType="picture-circle"
         fileList={value}
         onPreview={handlePreview}
         onChange={handleChange}

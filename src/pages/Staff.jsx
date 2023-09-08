@@ -1,7 +1,11 @@
 import React from "react";
 
 const Staff = () => {
-  return <div>Staff</div>;
+  return (
+    <div className="w-full  h-[calc(100vh-60px)] p-10 ">
+      <div></div>
+    </div>
+  );
 };
 
 export default Staff;

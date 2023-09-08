@@ -25,6 +25,12 @@ const Login = () => {
       .then((response) => {
         message.loading("Loading...", 1, () => {
           localStorage.setItem("authorization", response.data.authorization);
+          localStorage.setItem(
+            "photoUser",
+            `http://localhost:3000/${response.data.photoUser}`
+          );
+          localStorage.setItem("displayName", response.data.displayName);
+          localStorage.setItem("email", response.data.email);
           message.success(response.data.message);
           navigate("/");
         });
@@ -36,62 +42,85 @@ const Login = () => {
   };
 
   return (
-    <div className="w-full h-screen  flex">
+    <div className="w-full h-screen flex p-5 ">
       {/* Kanan */}
-      <div className="hidden w-[50%] bg-slate-300 h-full sm:flex">
-        <div className="flex justify-center items-center w-full">
-          <img src={login} alt="" className="h-[400px] w-[400px]" />
-        </div>
+      <div className="hidden w-[55%] bg-slate-100 h-full sm:flex rounded-lg">
+        <div className="flex justify-center items-center w-full"></div>
       </div>
 
       {/* Kiri */}
-      <div className="w-[100%] sm:w-[50%] flex flex-col items-center">
-        <div className="w-16 h-16 border-[1px] border-slate-800 flex justify-center items-center rounded-full mt-28">
+      <div className="w-[100%] sm:w-[45%] flex flex-col px-10 ">
+        <div className="flex justify-end items-center mb-20">
           <img src={logo} alt="logo" className="w-16 h-16" />
+          <p className="text-xl font-extrabold">AMPERA</p>
         </div>
-        <p className="text-2xl font-bold mt-5">Selamat Datang!</p>
-        <p className="font-light max-w-[300px]  text-center sm:max-w-full">
-          Silahkan Login, dan kelola restoran anda dengan cepat dan efisien
-        </p>
 
-        <form className="w-[350px]  p-5 rounded-xl mt-10">
-          <Input
-            placeholder="Masukkan Email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <Input.Password
-            placeholder="Masukkan Password"
-            className="mt-5 "
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
+        <div>
+          <p className="text-2xl font-extrabold  mt-5 ">Masuk</p>
+          <p className="font-light text-gray-500">
+            Silahkan masukkan e-mail dan password anda.
+          </p>
 
-          <Button
-            type="primary"
-            block
-            className="mt-5 bg-sky-600"
-            onClick={() => handleSubmit()}
-          >
-            Login
-          </Button>
-        </form>
+          <div className="w-full rounded-xl mt-10 ">
+            {/* Email */}
+            <label htmlFor="email" className="font-semibold">
+              E-mail
+            </label>
+            <Input
+              className="mb-6"
+              autoComplete="off"
+              placeholder="Masukkan E-mail Anda"
+              id="email"
+              size="large"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
 
-        <p className="font-light text-sm">
-          Belum Punya Akun?{" "}
-          <span
-            className="text-sky-900 font-normal cursor-pointer"
-            onClick={() => {
-              navigate("/register");
-            }}
-          >
-            Register
-          </span>{" "}
-        </p>
+            {/* Password */}
+            <label htmlFor="password" className="font-semibold">
+              Password
+            </label>
+            <Input.Password
+              className=""
+              id="password"
+              size="large"
+              placeholder="Masukkan Password Anda"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleSubmit();
+                }
+              }}
+            />
+
+            <Button
+              size="large"
+              type="primary"
+              block
+              className="mt-5 bg-sky-600"
+              onClick={() => handleSubmit()}
+            >
+              Login
+            </Button>
+          </div>
+
+          <p className="font-light text-sm mt-5">
+            Belum Punya Akun?{" "}
+            <span
+              className="text-sky-900 font-normal cursor-pointer font-semibold"
+              onClick={() => {
+                navigate("/register");
+              }}
+            >
+              Register
+            </span>{" "}
+          </p>
+        </div>
       </div>
     </div>
   );
