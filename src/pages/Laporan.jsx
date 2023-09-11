@@ -2,7 +2,7 @@ import React from "react";
 
 const Laporan = () => {
   return (
-    <div className="w-full  h-[calc(100vh-60px)] p-10 ">
+    <div className="w-full h-full">
       <div></div>
     </div>
   );

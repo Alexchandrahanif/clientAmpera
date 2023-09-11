@@ -44,19 +44,19 @@ const Login = () => {
   return (
     <div className="w-full h-screen flex p-5 ">
       {/* Kanan */}
-      <div className="hidden w-[55%] bg-slate-100 h-full sm:flex rounded-lg">
+      <div className="w-[55%] bg-slate-100 h-full rounded-lg">
         <div className="flex justify-center items-center w-full"></div>
       </div>
 
       {/* Kiri */}
-      <div className="w-[100%] sm:w-[45%] flex flex-col px-10 ">
+      <div className="w-[45%] flex flex-col px-10 ">
         <div className="flex justify-end items-center mb-20">
           <img src={logo} alt="logo" className="w-16 h-16" />
-          <p className="text-xl font-extrabold">AMPERA</p>
+          <p className="text-xl font-black">AMPERA</p>
         </div>
 
         <div>
-          <p className="text-2xl font-extrabold  mt-5 ">Masuk</p>
+          <p className="text-2xl font-black mt-5 ">Masuk</p>
           <p className="font-light text-gray-500">
             Silahkan masukkan e-mail dan password anda.
           </p>

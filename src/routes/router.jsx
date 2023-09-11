@@ -8,10 +8,8 @@ import Home from "../pages/Home";
 import Register from "../pages/Register";
 import Menu from "../pages/Menu";
 import Order from "../pages/Order";
-import Staff from "../pages/Staff";
 import Table from "../pages/Table";
 import Layout from "../components/layout/Layout";
-import Customer from "../pages/Customer";
 import Laporan from "../pages/Laporan";
 
 const router = createBrowserRouter([
@@ -54,16 +52,8 @@ const router = createBrowserRouter([
         element: <Menu />,
       },
       {
-        path: "/customer",
-        element: <Customer />,
-      },
-      {
         path: "/order",
         element: <Order />,
-      },
-      {
-        path: "/staff",
-        element: <Staff />,
       },
       {
         path: "/meja",

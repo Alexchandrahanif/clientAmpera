@@ -12,50 +12,52 @@ const Sidebar = () => {
   return (
     <div className="w-full h-screen bg-primaryLight px-5  flex flex-col">
       {/* Logo */}
-      <div className="flex  items-center pt-10 pb-16 h-[10%]">
+      <div className="flex  items-center  h-[100px] ">
         <img src={"/logoAlex.png"} alt="logo" className="h-12 w-12" />
-        <p className="font-bold font-poppins text-2xl text-white">AMPERA</p>
+        <p className="font-black font-poppins text-2xl text-white">AMPERA</p>
       </div>
 
       {/* Menu */}
       <div className="h-[75%]">
-        {dataSidebar?.map((el, index) => (
-          <Link
-            to={el.link}
-            key={index}
-            className={`text-white text-md font-poppins px-3 py-2 cursor-pointer flex items-center gap-3 mb-1 ${
-              activeMenu === el.name
-                ? "bg-primaryDark rounded-lg font-semibold "
-                : "hover:bg-primary hover:rounded-lg"
-            }`}
-            onClick={() => {
-              localStorage.setItem("activeMenu", el.name);
-            }}
-          >
-            {el.icon}
-            {el.name}
-          </Link>
-        ))}
-      </div>
-      <div className="">
-        {dataMenu?.map((el, index) => {
-          return (
-            <div
+        {dataSidebar &&
+          dataSidebar?.map((el, index) => (
+            <Link
+              to={el.link}
               key={index}
-              className="text-white text-md  font-poppins px-3 py-2 cursor-pointer hover:bg-[#041059] hover:rounded-lg  flex items-center gap-3 "
+              className={`text-white text-md font-poppins px-3 py-2 cursor-pointer flex items-center gap-3 mb-1 ${
+                activeMenu === el.name
+                  ? "bg-primaryDark rounded-lg font-semibold "
+                  : "hover:bg-primary hover:rounded-lg"
+              }`}
               onClick={() => {
-                message.loading("Loading...", 1, () => {
-                  localStorage.clear();
-                  message.success("Sampai Jumpa Lagi!!");
-                  navigate("/login");
-                });
+                localStorage.setItem("activeMenu", el.name);
               }}
             >
               {el.icon}
               {el.name}
-            </div>
-          );
-        })}
+            </Link>
+          ))}
+      </div>
+      <div className="">
+        {dataMenu &&
+          dataMenu?.map((el, index) => {
+            return (
+              <div
+                key={index}
+                className="text-white text-md  font-poppins px-3 py-2 cursor-pointer hover:bg-[#041059] hover:rounded-lg  flex items-center gap-3 "
+                onClick={() => {
+                  message.loading("Loading...", 1, () => {
+                    localStorage.clear();
+                    message.success("Sampai Jumpa Lagi!!");
+                    navigate("/login");
+                  });
+                }}
+              >
+                {el.icon}
+                {el.name}
+              </div>
+            );
+          })}
       </div>
     </div>
   );

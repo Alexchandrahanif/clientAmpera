@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import Search from "antd/es/input/Search";
-import CardMenus from "../components/utils/CardMenus";
+// import CardMenus from "../components/utils/CardMenus";
 
 import { Image, Button, Input, InputNumber } from "antd";
 import { DownloadOutlined, PlusCircleOutlined } from "@ant-design/icons";
-import CardMenus2 from "../components/utils/CardMenus2";
+import CardMenus from "../components/home/CardMenus";
+import CardMenus2 from "../components/home/CardMenus2";
 
 const onSearch = (value) => console.log(value);
 
@@ -93,7 +94,7 @@ const Menu = () => {
   };
 
   return (
-    <div className="w-full h-full  flex ">
+    <div className="w-full h-full flex ">
       <div className="w-[70%]  ">
         <div className=" w-full px-10 py-5 ">
           <Search

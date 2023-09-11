@@ -28,19 +28,9 @@ export const dataSidebar = [
     link: "/menu",
   },
   {
-    name: "Staff",
-    icon: <IdcardOutlined />,
-    link: "/staff",
-  },
-  {
     name: "Laporan",
     icon: <BookOutlined />,
     link: "/laporan",
-  },
-  {
-    name: "Customer",
-    icon: <TeamOutlined />,
-    link: "/customer",
   },
   {
     name: "Meja",
